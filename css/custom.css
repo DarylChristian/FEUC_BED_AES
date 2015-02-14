@@ -1,0 +1,145 @@
+@font-face
+{
+	font-family:Helvetica;
+	src:url(Helvetica/Helvetica/HelveticaNeue.ttf);
+}
+body
+{
+	padding-top:120px;
+	padding-bottom:100px;
+}
+.feulogo
+{
+	margin-left:auto;
+	margin-right:auto;
+	
+
+}
+.feulogo img
+{
+	height:100px;
+}
+.centerthis
+{
+	
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+.signincontainer
+{
+	width:290px;
+
+	padding:30px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.left_container
+{
+	width:60%;
+	border:solid 1pt;
+	float:left;
+	background-color:white;
+}
+.right_container
+{
+	width:30%;
+	border:solid 1pt;
+	position:fixed;
+	right:150px;
+}
+.headings
+{
+	font-size:12px;
+}
+.left_align
+{
+	float:left;
+
+	
+}
+#right_align
+{
+	float:right;
+}
+.fixed
+{
+	position:fixed;
+	width:400px;
+}
+.subjcontainer
+{
+	
+	text-align:center;
+}
+.subjcontainer img
+{
+	text-align: center;
+	height:200px;
+	
+}
+.designer
+{
+	list-style: none;
+	
+	font-size:10px;
+}
+.designer li
+{
+	display:inline;
+	list-style: none;
+	
+
+}
+#first
+{
+	margin-left:30px;
+}
+#second
+{
+	margin-left:35px;
+}
+#third
+{
+	margin-left:60px;
+}
+#fourth
+{
+	margin-left:55px;
+}
+#fifth
+{
+	margin-left:35px;
+}
+#sixth
+{
+	margin-left:35px;
+}
+
+
+.slidercontainer
+{
+	width:400px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+.subject_header
+{
+	text-align:center;
+}
+.width_small
+{
+	width:500px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.italic_bold
+{
+	font-weight:bold;
+	font-style: italic;
+}
+.boldme
+{
+	font-weight:bold;
+}
