@@ -14,8 +14,9 @@ function display_subjects()
 	echo "
 		<div class='subject_header'>
 			<h1>CHOOSE A SUBJECT</h1>
-		  </div>
+		  </div>$id
 				";
+
 				getSubjects($section);
 				
 }
@@ -154,9 +155,20 @@ function display_form2($id, $prof, $subject)
 			      </h4>
               	<div class='well'>
               	<form  onsubmit='return validateForm();' action='functions/db_functions.php' method='post'>
+              	<table class='table'>
+              		<thead>
+              			<tr>
+              				<th class='width_questions'><br></th>
+              				<th class='width_choices'>5&nbsp;&nbsp;
+              											4&nbsp;&nbsp;
+              											3&nbsp;&nbsp;
+              											2&nbsp;&nbsp;
+              											1</th>
+              			</tr>
 				";
 				getQuestions(2, $prof, $subj_id);
 				echo"
+				</table>
 				<button type='submit' class='btn btn-success form-control' name='btn_evaluate' >Submit</button>
 				</form>
 				</div><!--end of well -->

@@ -89,7 +89,7 @@ if(isset($_POST['btn_login']))
 	checkCredentials($id, $ln);
 }
 //evaluate per subject
-if(isset($_POST['btn_evaluate']))
+if(isset($_POST['btn_evaluateProf']))
 {
 	$id = $_POST['student'];
 	$prof = $_POST['prof'];

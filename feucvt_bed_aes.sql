@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2015 at 08:55 AM
+-- Generation Time: Feb 18, 2015 at 02:13 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -23,6 +23,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin_users`
+--
+
+CREATE TABLE IF NOT EXISTS `admin_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `admin_users`
+--
+
+INSERT INTO `admin_users` (`id`, `email`, `name`, `password`) VALUES
+(1, 'dccabacungan@feucavite.edu.ph', 'Daryl Christian M. Cabacungan', 'ddd'),
+(2, 'ccoronel@feucavite.edu.ph', 'Carlo P. Coronel', '123456');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_done`
 --
 
@@ -32,7 +54,16 @@ CREATE TABLE IF NOT EXISTS `tbl_done` (
   `prof_id` int(11) NOT NULL,
   `subj_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `tbl_done`
+--
+
+INSERT INTO `tbl_done` (`id`, `stud_id`, `prof_id`, `subj_id`) VALUES
+(1, 101, 20, 15),
+(2, 102, 20, 15),
+(3, 103, 20, 15);
 
 -- --------------------------------------------------------
 
@@ -154,7 +185,43 @@ CREATE TABLE IF NOT EXISTS `tbl_rating` (
   `ques_id` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=43 ;
+
+--
+-- Dumping data for table `tbl_rating`
+--
+
+INSERT INTO `tbl_rating` (`id`, `student_id`, `prof_id`, `subject_id`, `ques_id`, `rating`) VALUES
+(4, 101, 20, 15, 1, 5),
+(5, 101, 20, 15, 2, 5),
+(6, 101, 20, 15, 3, 5),
+(7, 101, 20, 15, 4, 5),
+(8, 101, 20, 15, 5, 5),
+(9, 101, 20, 15, 6, 5),
+(10, 101, 20, 15, 7, 5),
+(11, 101, 20, 15, 8, 5),
+(12, 101, 20, 15, 9, 5),
+(13, 101, 20, 15, 10, 5),
+(18, 102, 20, 15, 1, 5),
+(19, 102, 20, 15, 2, 5),
+(20, 102, 20, 15, 3, 5),
+(21, 102, 20, 15, 4, 5),
+(22, 102, 20, 15, 5, 5),
+(23, 102, 20, 15, 6, 5),
+(24, 102, 20, 15, 7, 5),
+(25, 102, 20, 15, 8, 5),
+(26, 102, 20, 15, 9, 5),
+(27, 102, 20, 15, 10, 5),
+(32, 103, 20, 15, 1, 2),
+(33, 103, 20, 15, 2, 1),
+(34, 103, 20, 15, 3, 3),
+(35, 103, 20, 15, 4, 1),
+(36, 103, 20, 15, 5, 1),
+(37, 103, 20, 15, 6, 1),
+(38, 103, 20, 15, 7, 3),
+(39, 103, 20, 15, 8, 1),
+(40, 103, 20, 15, 9, 1),
+(41, 103, 20, 15, 10, 1);
 
 -- --------------------------------------------------------
 
@@ -598,7 +665,7 @@ CREATE TABLE IF NOT EXISTS `tbl_subjects` (
   `RType` varchar(7) DEFAULT NULL,
   `MType` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=143 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=169 ;
 
 --
 -- Dumping data for table `tbl_subjects`
@@ -607,12 +674,12 @@ CREATE TABLE IF NOT EXISTS `tbl_subjects` (
 INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `RUnits`, `Sched`, `Room`, `SchedStatus`, `Prof`, `LName`, `FName`, `MI`, `MaxStudents`, `Current`, `GStatus`, `EvStatus`, `User`, `LCDate`, `Dept`, `Course`, `Level`, `Access`, `RType`, `MType`) VALUES
 (1, 'SY2014-2015', 'E4-ARTS', 'ARTS', 'G04-PRUDENCE', '0.25', 'W 1400-1500', 'NRH202', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'PartMAPE'),
 (2, 'SY2014-2015', 'E4-CHAR', 'CHARACTER AND VALUES EDUCATION', 'G04-PRUDENCE', '1', 'MTWTHF 0730-0800', 'NRH202', 'Open', 'CABILLOJ', 'CABILLO', 'JINKY', 'L', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'MainSoci'),
-(3, 'SY2014-2015', 'E4-ENGL', 'ENGLISH', 'G04-PRUDENCE', '1', '', 'NRH202', 'Open', '-', '-', '-', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'MainEnglish'),
+(3, 'SY2014-2015', 'E4-ENGL', 'ENGLISH', 'G04-PRUDENCE', '1', '', 'NRH202', 'Open', 'DESACADL', '-', '-', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'MainEnglish'),
 (4, 'SY2014-2015', 'E4-FILI', 'FILIPINO', 'G04-PRUDENCE', '1', 'MTWTH 0800-0900', 'NRH202', 'Open', 'CABILLOJ', 'CABILLO', 'JINKY', 'L', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'Main'),
 (5, 'SY2014-2015', 'E4-HEALTH', 'HEALTH', 'G04-PRUDENCE', '0.25', 'F 0800-0900', 'NRH202', 'Open', 'CABILLOJ', 'CABILLO', 'JINKY', 'L', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'PartMAPE'),
 (6, 'SY2014-2015', 'E4-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'G04-PRUDENCE', '1', 'MF 1400-1500', 'NRH202', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'MainSoci'),
 (7, 'SY2014-2015', 'E4-LANG', 'LANGUAGE', 'G04-PRUDENCE', '0.5', 'MTW 0930-1030', 'NRH202', 'Open', 'DESACADL', 'DESACADA', 'LORNA', 'R', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'PartEnglish'),
-(8, 'SY2014-2015', 'E4-MAPEH', 'MUSIC,ARTS,PHYSICAL EDUCATION AND HEALTH', 'G04-PRUDENCE', '1', '', '-', 'Open', '-', '-', '-', '', '45', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'MainSoci'),
+(8, 'SY2014-2015', 'E4-MAPEH', 'MUSIC,ARTS,PHYSICAL EDUCATION AND HEALTH', 'G04-PRUDENCE', '1', '', '-', 'Open', 'CABILLOJ', '-', '-', '', '45', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'MainSoci'),
 (9, 'SY2014-2015', 'E4-MATH', 'MATHEMATICS', 'G04-PRUDENCE', '1', 'MTWTHF 1200-1300', 'NRH202', 'Open', 'SANTOSJA', 'SANTOS', 'JULIE ANN', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'Main'),
 (10, 'SY2014-2015', 'E4-MUSIC', 'MUSIC', 'G04-PRUDENCE', '0.25', 'M 1030-1130', 'NRH202', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'PartMAPE'),
 (11, 'SY2014-2015', 'E4-PE', 'PHYSICAL EDUCATION AND HEALTH', 'G04-PRUDENCE', '0.25', 'T 1400-1500', 'NRH202', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'PartMAPE'),
@@ -621,12 +688,11 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (14, 'SY2014-2015', 'E4-SOCI-PART', 'HEKASI', 'G04-PRUDENCE', '1', 'TWTHF 1030-1130', 'NRH202', 'Open', 'AMANTEM', 'AMANTE', 'MICHELLE', '', '40', '31', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G04', '', 'Regular', 'MainSoci'),
 (15, 'SY2014-2015', 'E5-ARTS', 'ARTS', 'G05-JOY', '0.25', 'TH 1400-1500', 'NRH201', 'Open', 'VICTORIAN', 'VICTORIA', 'IANA CHRISTINE', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'PartMAPE'),
 (16, 'SY2014-2015', 'E5-CHAR', 'CHARACTER AND VALUES EDUCATION', 'G05-JOY', '1', 'MTWTHF 0730-0800', 'NRH201', 'Open', 'LEGASPIR', 'LEGASPI', 'RAQUEL', 'B', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'MainSoci'),
-(17, 'SY2014-2015', 'E5-ENGL', 'ENGLISH', 'G05-JOY', '1', '', 'NRH201', 'Open', '-', '-', '-', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'MainEnglish'),
+(17, 'SY2014-2015', 'E5-ENGL', 'ENGLISH', 'G05-JOY', '1', '', 'NRH201', 'Open', 'DESACADL', '-', '-', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'MainEnglish'),
 (18, 'SY2014-2015', 'E5-FILI', 'FILIPINO', 'G05-JOY', '1', 'MTWF 1300-1400', 'NRH201', 'Open', 'CABILLOJ', 'CABILLO', 'JINKY', 'L', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'Main'),
 (19, 'SY2014-2015', 'E5-HEALTH', 'HEALTH', 'G05-JOY', '0.25', 'F 0800-0900', 'NRH201', 'Open', 'LEGASPIR', 'LEGASPI', 'RAQUEL', 'B', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'PartMAPE'),
 (20, 'SY2014-2015', 'E5-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'G05-JOY', '1', 'TW 0800-0900', 'NRH201', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'MainSoci'),
 (21, 'SY2014-2015', 'E5-LANG', 'LANGUAGE', 'G05-JOY', '0.5', 'WTHF 1200-1300', 'NRH201', 'Open', 'DESACADL', 'DESACADA', 'LORNA', 'R', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'PartEnglish'),
-(22, 'SY2014-2015', 'E5-MAPEH', 'MUSIC,ARTS,PHYSICAL EDUCATION AND HEALTH', 'G05-JOY', '1', '', 'NRH201', 'Open', '-', '-', '-', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'MainSoci'),
 (23, 'SY2014-2015', 'E5-MATH', 'MATHEMATICS', 'G05-JOY', '1', 'MTWTHF 0930-1030', 'NRH201', 'Open', 'SANTOSJA', 'SANTOS', 'JULIE ANN', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'Main'),
 (24, 'SY2014-2015', 'E5-MUSIC', 'MUSIC', 'G05-JOY', '0.25', 'M 0800-0900', 'NRH201', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'PartMAPE'),
 (25, 'SY2014-2015', 'E5-PE', 'PHYSICAL EDUCATION', 'G05-JOY', '0.25', 'F 1400-1500', 'NRH201', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'PartMAPE'),
@@ -635,12 +701,11 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (28, 'SY2014-2015', 'E5-SOCI-PART', 'HEKASI', 'G05-JOY', '1', 'TH 1300-1400 MTW', 'NRH201', 'Open', 'AMANTEM', 'AMANTE', 'MICHELLE', '', '40', '32', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G05', '', 'Regular', 'MainSoci'),
 (29, 'SY2014-2015', 'E6-ARTS', 'ARTS', 'G06-INTEGRIT', '0.25', 'TH 1030-1130', 'NRH305', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'PartMAPE'),
 (30, 'SY2014-2015', 'E6-CHAR', 'CHARACTER AND VALUES EDUCATION', 'G06-INTEGRIT', '1', 'MTWTHF 0730-0800', 'NRH305', 'Open', 'DESACADL', 'DESACADA', 'LORNA', 'R', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'MainSoci'),
-(31, 'SY2014-2015', 'E6-ENGL', 'ENGLISH', 'G06-INTEGRIT', '1', '', 'NRH305', 'Open', '-', '-', '-', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'MainEnglish'),
+(31, 'SY2014-2015', 'E6-ENGL', 'ENGLISH', 'G06-INTEGRIT', '1', '', 'NRH305', 'Open', 'DESACADL', '-', '-', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'MainEnglish'),
 (32, 'SY2014-2015', 'E6-FILI', 'FILIPINO', 'G06-INTEGRIT', '1', 'MTWF 1030-1130', 'NRH305', 'Open', 'CABILLOJ', 'CABILLO', 'JINKY', 'L', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'Main'),
 (33, 'SY2014-2015', 'E6-HEALTH', 'HEALTH', 'G06-INTEGRIT', '0.25', 'F 0930-1030', 'NRH305', 'Open', 'CABILLOJ', 'CABILLO', 'JINKY', 'L', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'PartMAPE'),
 (34, 'SY2014-2015', 'E6-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'G06-INTEGRIT', '1', 'TTH 0930-1030', 'NRH305', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'MainSoci'),
 (35, 'SY2014-2015', 'E6-LANG', 'LANGUAGE', 'G06-INTEGRIT', '0.5', 'MTH 0800-0900', 'NRH305', 'Open', 'DESACADL', 'DESACADA', 'LORNA', 'R', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'PartEnglish'),
-(36, 'SY2014-2015', 'E6-MAPEH', 'MUSIC,ARTS, PHYSICAL EDUCATION AND HEALT', 'G06-INTEGRIT', '1', '', 'NRH305', 'Open', '-', '-', '-', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'MainSoci'),
 (37, 'SY2014-2015', 'E6-MATH', 'MATHEMATICS', 'G06-INTEGRIT', '1', 'MTWTHF 1300-1400', 'NRH305', 'Open', 'PEREYR', 'PEREY', 'RACHEL', 'G', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'Main'),
 (38, 'SY2014-2015', 'E6-MUSIC', 'MUSIC', 'G06-INTEGRIT', '0.25', 'W 0930-1030', 'NRH305', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'PartMAPE'),
 (39, 'SY2014-2015', 'E6-PE', 'PHYSICAL EDUCATION', 'G06-INTEGRIT', '0.25', 'W 1200-1300', 'NRH305', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:48 PM', 'ELEMENTARY', 'K12-GS', 'G06', '', 'Regular', 'PartMAPE'),
@@ -654,13 +719,12 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (47, 'SY2014-2015', 'S1-FILI', 'FILIPINO', 'G07-FAITH', '1.2', 'MTWF 1400-1500', 'NRH303', 'Open', 'LOPEZLA', 'LOPEZ', 'LARA', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'Main'),
 (48, 'SY2014-2015', 'S1-HEALTH', 'HEALTH', 'G07-FAITH', '0.3', 'TH 1400-1500', 'NRH303', 'Open', 'PEREYR', 'PEREY', 'RACHEL', 'G', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'PartMAPE'),
 (49, 'SY2014-2015', 'S1-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'G07-FAITH', '0.6', 'F 1130-1230 TH 1', 'NRH303', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'PartTHEL'),
-(50, 'SY2014-2015', 'S1-MAPEH', 'Music,Arts,PE and Health', 'G07-FAITH', '1.2', '', 'NRH303', 'Open', '-', '-', '-', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'MainSoci'),
 (51, 'SY2014-2015', 'S1-MATH', 'MATHEMATICS (Elem.Algebra)/Arithmetic)', 'G07-FAITH', '1.5', 'MTWTHF 0800-0900', 'NRH303', 'Open', 'SANTOSJA', 'SANTOS', 'JULIE ANN', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'Main'),
 (52, 'SY2014-2015', 'S1-MUSIC', 'MUSIC', 'G07-FAITH', '0.3', 'T 1300-1400', 'NRH303', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'PartMAPE'),
 (53, 'SY2014-2015', 'S1-PE', 'PE', 'G07-FAITH', '0.3', 'W 1300-1400', 'NRH303', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'PartMAPE'),
 (54, 'SY2014-2015', 'S1-SCIE', 'SCIENCE ( General Science)', 'G07-FAITH', '1.8', 'MTWTHF 1030-1130', 'NRH303', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'Main'),
 (55, 'SY2014-2015', 'S1-SOCI-PART', 'ARALING PANLIPUNAN ( PHIL. HISTORY)', 'G07-FAITH', '1.2', 'W 1130-1230 MF13', 'NRH303', 'Open', 'AMANTEM', 'AMANTE', 'MICHELLE', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'MainSoci'),
-(56, 'SY2014-2015', 'S1-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G07-FAITH', '1.2', '', 'NRH303', 'Open', '-', '-', '-', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'MainSoci'),
+(56, 'SY2014-2015', 'S1-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G07-FAITH', '1.2', '', 'NRH303', 'Open', 'CRUZJOB', '-', '-', '', '45', '43', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G07', '', 'Regular', 'MainSoci'),
 (57, 'SY2014-2015', 'S2-ARTS', 'ARTS', 'G08-ENCOURAG', '0.3', 'T 1030-1130', 'NRH301', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (58, 'SY2014-2015', 'S2-CHAR', 'CHARACTER AND VALUES EDUCATION', 'G08-ENCOURAG', '0.6', 'MTWTHF 0730-0800', 'NRH301', 'Open', 'ROGELIOJ', 'ROGELIO', 'JENNIFER', 'v', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
 (59, 'SY2014-2015', 'S2-COMP', 'COMPUTER', 'G08-ENCOURAG', '0.6', 'MT 1400-1500', 'NRH301', 'Open', 'BERNARDO', 'BERNARDO', 'JENIFFER', 'B', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartTHEL'),
@@ -668,13 +732,12 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (61, 'SY2014-2015', 'S2-FILI', 'FILIPINO', 'G08-ENCOURAG', '1.2', 'TWTHF 0900-1000', 'NRH301', 'Open', 'LOPEZLA', 'LOPEZ', 'LARA', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'Main'),
 (62, 'SY2014-2015', 'S2-HEALTH', 'HEALTH', 'G08-ENCOURAG', '0.3', 'M 0900-1000', 'NRH301', 'Open', 'PEREYR', 'PEREY', 'RACHEL', 'G', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (63, 'SY2014-2015', 'S2-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'G08-ENCOURAG', '0.6', 'THF 1030-1130', 'NRH301', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartTHEL'),
-(64, 'SY2014-2015', 'S2-MAPEH', 'MUSIC,ARTS, PHYSICAL EDUCATION and HEALT', 'G08-ENCOURAG', '1.2', '', 'NRH301', 'Open', '-', '-', '-', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
 (65, 'SY2014-2015', 'S2-MATH', 'MATHEMATICS ( Algebra)', 'G08-ENCOURAG', '1.5', 'MTWTHF 1130-1230', 'NRH301', 'Open', 'PEREYR', 'PEREY', 'RACHEL', 'G', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'Main'),
 (66, 'SY2014-2015', 'S2-MUSIC', 'MUSIC', 'G08-ENCOURAG', '0.3', 'W 1030-1130', 'NRH301', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (67, 'SY2014-2015', 'S2-PE', 'PE', 'G08-ENCOURAG', '0.4', 'W 1400-1500', 'NRH301', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (68, 'SY2014-2015', 'S2-SCIE', 'SCIENCE ( BIOLOGY)', 'G08-ENCOURAG', '1.8', 'MTWTHF 1300-1400', 'NRH301', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'Main'),
 (69, 'SY2014-2015', 'S2-SOCI-PART', 'ARALING PANLIPUNAN ( ASIAN STUDIES)', 'G08-ENCOURAG', '1.2', 'M1030-1130 THF 1', 'NRH301', 'Open', 'AMANTEM', 'AMANTE', 'MICHELLE', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
-(70, 'SY2014-2015', 'S2-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G08-ENCOURAG', '1.2', '', 'NRH301', 'Open', '-', '-', '-', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
+(70, 'SY2014-2015', 'S2-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G08-ENCOURAG', '1.2', '', 'NRH301', 'Open', 'CRUZJOB', '-', '-', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
 (71, 'SY2014-2015', 'S2-ARTS', 'ARTS', 'G08-ENDURANC', '0.3', 'TH 1300-1400', 'NRH302', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (72, 'SY2014-2015', 'S2-CHAR', 'CHARACTER AND VALUES EDUCATION', 'G08-ENDURANC', '0.6', 'MTWTHF 0730-0800', 'NRH302', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
 (73, 'SY2014-2015', 'S2-COMP', 'COMPUTER', 'G08-ENDURANC', '0.6', 'MT 1300-1400', 'NRH302', 'Open', 'BERNARDO', 'BERNARDO', 'JENIFFER', 'B', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartTHEL'),
@@ -682,13 +745,12 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (75, 'SY2014-2015', 'S2-FILI', 'FILIPINO', 'G08-ENDURANC', '1.2', 'MTWTH 1030-1130', 'NRH302', 'Open', 'LOPEZLA', 'LOPEZ', 'LARA', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'Main'),
 (76, 'SY2014-2015', 'S2-HEALTH', 'HEALTH', 'G08-ENDURANC', '0.3', 'F 0800-0900', 'NRH302', 'Open', 'PEREYR', 'PEREY', 'RACHEL', 'G', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (77, 'SY2014-2015', 'S2-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'G08-ENDURANC', '0.6', 'WF 1300-1400', 'NRH302', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartTHEL'),
-(78, 'SY2014-2015', 'S2-MAPEH', 'MUSIC,ARTS, PHYSICAL EDUCATION and HEALT', 'G08-ENDURANC', '1.2', '', 'NRH302', 'Open', '-', '-', '-', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
 (79, 'SY2014-2015', 'S2-MATH', 'MATHEMATICS ( Algebra)', 'G08-ENDURANC', '1.5', 'TH 0800-0900 MTW', 'NRH302', 'Open', 'PEREYR', 'PEREY', 'RACHEL', 'G', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'Main'),
 (80, 'SY2014-2015', 'S2-MUSIC', 'MUSIC', 'G08-ENDURANC', '0.3', 'TH 1400-1500', 'NRH302', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (81, 'SY2014-2015', 'S2-PE', 'PE', 'G08-ENDURANC', '0.4', 'F 1030-1130', 'NRH302', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'PartMAPE'),
 (82, 'SY2014-2015', 'S2-SCIE', 'SCIENCE ( BIOLOGY)', 'G08-ENDURANC', '1.8', 'MTWTHF 0900-1000', 'NRH302', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'Main'),
 (83, 'SY2014-2015', 'S2-SOCI-PART', 'ARALING PANLIPUNAN ( ASIAN STUDIES)', 'G08-ENDURANC', '1.2', 'MTW 0800-0900', 'NRH302', 'Open', 'AMANTEM', 'AMANTE', 'MICHELLE', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
-(84, 'SY2014-2015', 'S2-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G08-ENDURANC', '1.2', '', 'NRH302', 'Open', '-', '-', '-', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
+(84, 'SY2014-2015', 'S2-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G08-ENDURANC', '1.2', '', 'NRH302', 'Open', 'CRUZJOB', '-', '-', '', '40', '25', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G08', '', 'Regular', 'MainSoci'),
 (85, 'SY2014-2015', 'S3-ARTS', 'ARTS', 'G09-CHARITY', '0.3', 'F 0900-1000', 'NRH404', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (86, 'SY2014-2015', 'S3-CHAR', 'CHARACTER AND VALUES EDUCATION', 'G09-CHARITY', '0.9', 'MTWTHF 0730-0800', 'NRH404', 'Open', 'VINEGASM', 'VIÑEGAS', 'MARINELA', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
 (87, 'SY2014-2015', 'S3-COMP', 'COMPUTER', 'G09-CHARITY', '0.6', 'WTH 1300-1400', 'NRH404', 'Open', 'BERNARDO', 'BERNARDO', 'JENIFFER', 'B', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartTHEL'),
@@ -696,13 +758,12 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (89, 'SY2014-2015', 'S3-FILI', 'FILIPINO', 'G09-CHARITY', '1.2', 'MTTH 0800-0900 F', 'NRH404', 'Open', 'VINEGASM', 'VIÑEGAS', 'MARINELA', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'Main'),
 (90, 'SY2014-2015', 'S3-HEALTH', 'HEALTH', 'G09-CHARITY', '0.3', 'F 0800-0900', 'NRH404', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (91, 'SY2014-2015', 'S3-HELE', 'HOME ECONOMICS/LIVELIHOOD EDUCATION', 'G09-CHARITY', '0.6', 'MT 1300-1400', 'NRH404', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartTHEL'),
-(92, 'SY2014-2015', 'S3-MAPEH', 'MUSIC,ARTS, PHYSICAL EDUCATION AND HEALT', 'G09-CHARITY', '1.2', '', 'NRH404', 'Open', '-', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
 (93, 'SY2014-2015', 'S3-MATH', 'MATHEMATICS( GEOMETRY)', 'G09-CHARITY', '1.5', 'MTWTHF 1130-1230', 'NRH404', 'Open', 'CUPOA', 'CUPO', 'ARNOLD', 'M', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'Main'),
 (94, 'SY2014-2015', 'S3-MUSIC', 'MUSIC', 'G09-CHARITY', '0.3', 'W 0800-0900', 'NRH404', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (95, 'SY2014-2015', 'S3-PE', 'PHYSICAL EDUCATION', 'G09-CHARITY', '0.3', 'TH 0900-1000', 'NRH404', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (96, 'SY2014-2015', 'S3-SCIE', 'SCIENCE ( CHEMISTRY)', 'G09-CHARITY', '1.8', 'MTWTHF 1400-1500', 'NRH404', 'Open', 'ISIDOROBJ', 'ISIDORO', 'BARBARA JANE', 'T', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'Main'),
 (97, 'SY2014-2015', 'S3-SOCI-PART', 'ARALING PANLIPUNAN( WORLD HISTORY)', 'G09-CHARITY', '1.2', 'MTW 0900-1000', 'NRH404', 'Open', 'VINEGASM', 'VIÑEGAS', 'MARINELA', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
-(98, 'SY2014-2015', 'S3-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G09-CHARITY', '1.2', '', 'NRH404', 'Open', '-', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
+(98, 'SY2014-2015', 'S3-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G09-CHARITY', '1.2', '', 'NRH404', 'Open', 'CRUZJOB', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
 (99, 'SY2014-2015', 'S3-ARTS', 'ARTS', 'G09-COMPASSI', '0.3', 'M 1400-1500', 'NRH403', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (100, 'SY2014-2015', 'S3-CHAR', 'CHARACTER AND VALUES EDUCATION', 'G09-COMPASSI', '0.9', 'MTWTHF 0730-0800', 'NRH403', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
 (101, 'SY2014-2015', 'S3-COMP', 'COMPUTER', 'G09-COMPASSI', '0.6', 'MW 0800-0900', 'NRH403', 'Open', 'BERNARDO', 'BERNARDO', 'JENIFFER', 'B', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartTHEL'),
@@ -710,13 +771,12 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (103, 'SY2014-2015', 'S3-FILI', 'FILIPINO', 'G09-COMPASSI', '1.2', 'MTWF 1030-1130', 'NRH403', 'Open', 'VINEGASM', 'VIÑEGAS', 'MARINELA', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'Main'),
 (104, 'SY2014-2015', 'S3-HEALTH', 'HEALTH', 'G09-COMPASSI', '0.3', 'TH 1400-1500', 'NRH403', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (105, 'SY2014-2015', 'S3-HELE', 'HOME ECONOMICS/LIVELIHOOD EDUCATION', 'G09-COMPASSI', '0.6', 'THF 0800-0900', 'NRH403', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartTHEL'),
-(106, 'SY2014-2015', 'S3-MAPEH', 'MUSIC,ARTS, PHYSICAL EDUCATION AND HEALT', 'G09-COMPASSI', '1.2', '', 'NRH403', 'Open', '-', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
 (107, 'SY2014-2015', 'S3-MATH', 'MATHEMATICS( GEOMETRY)', 'G09-COMPASSI', '1.5', 'MTWTHF 1300-1400', 'NRH403', 'Open', 'CUPOA', 'CUPO', 'ARNOLD', 'M', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'Main'),
 (108, 'SY2014-2015', 'S3-MUSIC', 'MUSIC', 'G09-COMPASSI', '0.3', 'T 0800-0900', 'NRH403', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (109, 'SY2014-2015', 'S3-PE', 'PHYSICAL EDUCATION', 'G09-COMPASSI', '0.3', 'TH 1030-1130', 'NRH403', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'PartMAPE'),
 (110, 'SY2014-2015', 'S3-SCIE', 'SCIENCE ( CHEMISTRY)', 'G09-COMPASSI', '1.8', 'MTWTHF 0900-1000', 'NRH403', 'Open', 'ISIDOROBJ', 'ISIDORO', 'BARBARA JANE', 'T', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'Main'),
 (111, 'SY2014-2015', 'S3-SOCI-PART', 'ARALING PANLIPUNAN( WORLD HISTORY)', 'G09-COMPASSI', '1.2', 'TWF 1400-1500', 'NRH403', 'Open', 'VINEGASM', 'VIÑEGAS', 'MARINELA', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
-(112, 'SY2014-2015', 'S3-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G09-COMPASSI', '1.2', '', 'NRH403', 'Open', '-', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
+(112, 'SY2014-2015', 'S3-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'G09-COMPASSI', '1.2', '', 'NRH403', 'Open', 'CRUZJOB', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'K12-HS', 'G09', '', 'Regular', 'MainSoci'),
 (113, 'SY2014-2015', 'S4-ARTS', 'ARTS', 'S4-SERENITY', '0.3', 'F 1130-1230', 'NRH402', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (114, 'SY2014-2015', 'S4-CAT', 'CAT', 'S4-SERENITY', '0.3', '', '-', 'Open', 'LOPEZLA', 'LOPEZ', 'LARA', '', '45', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'CAT'),
 (115, 'SY2014-2015', 'S4-CHAR', 'CHARACTER and VALUES EDUCATION', 'S4-SERENITY', '0.9', 'MTWTHF 0730-0800', 'NRH402', 'Open', 'LOPEZLA', 'LOPEZ', 'LARA', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
@@ -725,13 +785,12 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (118, 'SY2014-2015', 'S4-FILI', 'FILIPINO', 'S4-SERENITY', '1.2', 'TWTHF 1300-1400', 'NRH402', 'Open', 'LOPEZLA', 'LOPEZ', 'LARA', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'Main'),
 (119, 'SY2014-2015', 'S4-HEALTH', 'HEALTH', 'S4-SERENITY', '0.3', 'W 0800-0900', 'NRH402', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (120, 'SY2014-2015', 'S4-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'S4-SERENITY', '0.6', 'M0800-0900 TH 11', 'NRH402', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartTHEL'),
-(121, 'SY2014-2015', 'S4-MAPEH', 'MUSIC,ARTS, PHYSICAL EDUCATION AND HEALT', 'S4-SERENITY', '1.2', '', 'NRH402', 'Open', '-', '-', '-', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
 (122, 'SY2014-2015', 'S4-MATH', 'Mathematics ( Advanced Algebra w/ Trigon', 'S4-SERENITY', '1.5', 'MTWTHF 1400-1500', 'NRH402', 'Open', 'CUPOA', 'CUPO', 'ARNOLD', 'M', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'Main'),
 (123, 'SY2014-2015', 'S4-MUSIC', 'MUSIC', 'S4-SERENITY', '0.3', 'M 1300-1400', 'NRH402', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (124, 'SY2014-2015', 'S4-PE', 'PHYSICAL EDUCATION', 'S4-SERENITY', '0.3', 'TH 0800-0900', 'NRH402', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (125, 'SY2014-2015', 'S4-SCIE', 'SCIENCE( PHYSICS)', 'S4-SERENITY', '1.8', 'MTWTHF 1030-1130', 'NRH402', 'Open', 'ISIDOROBJ', 'ISIDORO', 'BARBARA JANE', 'T', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'Main'),
 (126, 'SY2014-2015', 'S4-SOCI-PART', 'ARALING PANLIPUNAN ( ECONOMICS)', 'S4-SERENITY', '1.2', 'MTW 1130-1230', 'NRH402', 'Open', 'VINEGASM', 'VIÑEGAS', 'MARINELA', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
-(127, 'SY2014-2015', 'S4-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'S4-SERENITY', '1.2', '', 'NRH402', 'Open', '-', '-', '-', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
+(127, 'SY2014-2015', 'S4-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'S4-SERENITY', '1.2', '', 'NRH402', 'Open', 'CRUZJOB', '-', '-', '', '40', '26', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
 (128, 'SY2014-2015', 'S4-ARTS', 'ARTS', 'S4-SIMPLICIT', '0.3', 'F 1400-1500', 'NRH401', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (129, 'SY2014-2015', 'S4-CAT', 'CAT', 'S4-SIMPLICIT', '0.3', '', '-', 'Open', 'ISIDOROBJ', 'ISIDORO', 'BARBARA JANE', 'T', '45', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'CAT'),
 (130, 'SY2014-2015', 'S4-CHAR', 'CHARACTER and VALUES EDUCATION', 'S4-SIMPLICIT', '0.9', 'MTWTHF 0730-0800', 'NRH401', 'Open', 'ISIDOROBJ', 'ISIDORO', 'BARBARA JANE', 'T', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
@@ -740,13 +799,38 @@ INSERT INTO `tbl_subjects` (`id`, `Period`, `Subject`, `SubjDesc`, `SecCode`, `R
 (133, 'SY2014-2015', 'S4-FILI', 'FILIPINO', 'S4-SIMPLICIT', '1.2', 'MTWF 1130-1230', 'NRH401', 'Open', 'LOPEZLA', 'LOPEZ', 'LARA', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'Main'),
 (134, 'SY2014-2015', 'S4-HEALTH', 'HEALTH', 'S4-SIMPLICIT', '0.3', 'W 1400-1500', 'NRH401', 'Open', 'BALUYOTC', 'BALUYOT', 'CRISTINE JOY', 'A', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:49 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (135, 'SY2014-2015', 'S4-HELE', 'HOME ECONOMICS/LIVELIHOOD', 'S4-SIMPLICIT', '0.6', 'MT 1030-1130', 'NRH401', 'Open', 'CRUZJOB', 'CRUZ', 'JOLLIBELLE', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartTHEL'),
-(136, 'SY2014-2015', 'S4-MAPEH', 'MUSIC,ARTS, PHYSICAL EDUCATION AND HEALT', 'S4-SIMPLICIT', '1.2', '', 'NRH401', 'Open', '-', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
 (137, 'SY2014-2015', 'S4-MATH', 'Mathematics ( Advanced Algebra w/ Trigon', 'S4-SIMPLICIT', '1.5', 'MTWTHF 0900-1000', 'NRH401', 'Open', 'CUPOA', 'CUPO', 'ARNOLD', 'M', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'Main'),
 (138, 'SY2014-2015', 'S4-MUSIC', 'MUSIC', 'S4-SIMPLICIT', '0.3', 'T 1400-1500', 'NRH401', 'Open', 'GAJOLINAL', 'GAJOLIN', 'ANNA-LOU', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (139, 'SY2014-2015', 'S4-PE', 'PHYSICAL EDUCATION', 'S4-SIMPLICIT', '0.3', 'W 1030-1130', 'NRH401', 'Open', 'SORIANOBK', 'SORIANO', 'BRYALL KENNETH', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'PartMAPE'),
 (140, 'SY2014-2015', 'S4-SCIE', 'SCIENCE( PHYSICS)', 'S4-SIMPLICIT', '1.8', 'MTWTHF 0800-0900', 'NRH401', 'Open', 'ISIDOROBJ', 'ISIDORO', 'BARBARA JANE', 'T', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'Main'),
 (141, 'SY2014-2015', 'S4-SOCI-PART', 'ARALING PANLIPUNAN ( ECONOMICS)', 'S4-SIMPLICIT', '1.2', 'TH 1130-1230 MTH', 'NRH401', 'Open', 'VINEGASM', 'VIÑEGAS', 'MARINELA', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
-(142, 'SY2014-2015', 'S4-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'S4-SIMPLICIT', '1.2', '', 'NRH401', 'Open', '-', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci');
+(142, 'SY2014-2015', 'S4-THEL', 'CP-TECHNOLOGY AND LIVELIHOOD EDUCATION', 'S4-SIMPLICIT', '1.2', '', 'NRH401', 'Open', 'CRUZJOB', '-', '-', '', '40', '30', 'Pending', 'Blank', 'CINCOC', '1/12/2015 12:08:50 PM', 'SECONDARY', 'SECOND', 'S4', '', 'Regular', 'MainSoci'),
+(143, NULL, 'E5-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G05-JOY', NULL, NULL, NULL, NULL, 'VICTORIAN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(144, NULL, 'E5-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G05-JOY', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(145, NULL, 'E6-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G06-INTEGRIT', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(146, NULL, 'E6-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G06-INTEGRIT', NULL, NULL, NULL, NULL, 'CABILLOJ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(147, NULL, 'E6-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G06-INTEGRIT', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(148, NULL, 'S1-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G07-FAITH', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(149, NULL, 'S1-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G07-FAITH', NULL, NULL, NULL, NULL, 'PEREYR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(150, NULL, 'S1-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G07-FAITH', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(151, NULL, 'S2-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G08-ENCOURAG', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(152, NULL, 'S2-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G08-ENCOURAG', NULL, NULL, NULL, NULL, 'PEREYR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(153, NULL, 'S2-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G08-ENCOURAG', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(154, NULL, 'S2-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G08-ENDURANC', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(155, NULL, 'S2-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G08-ENDURANC', NULL, NULL, NULL, NULL, 'PEREYR', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(156, NULL, 'S2-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G08-ENDURANC', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(157, NULL, 'S3-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G09-CHARITY', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(158, NULL, 'S3-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G09-CHARITY', NULL, NULL, NULL, NULL, 'BALUYOTC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(159, NULL, 'S3-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G09-CHARITY', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(160, NULL, 'S3-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G09-COMPASSI', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(161, NULL, 'S3-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G09-COMPASSI', NULL, NULL, NULL, NULL, 'BALUYOTC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(162, NULL, 'S3-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'G09-COMPASSI', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(163, NULL, 'S4-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'S4-SERENITY', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(164, NULL, 'S4-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'S4-SERENITY', NULL, NULL, NULL, NULL, 'BALUYOTC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(165, NULL, 'S4-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'S4-SERENITY', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(166, NULL, 'S4-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'S4-SIMPLICIT', NULL, NULL, NULL, NULL, 'GAJOLINAL', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(167, NULL, 'S4-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'S4-SIMPLICIT', NULL, NULL, NULL, NULL, 'BALUYOTC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(168, NULL, 'S4-MAPEH', 'MUSIC, ARTS, PE AND HEALTH', 'S4-SIMPLICIT', NULL, NULL, NULL, NULL, 'SORIANOBK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

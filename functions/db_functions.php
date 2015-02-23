@@ -50,9 +50,9 @@ function getSubjects($section)
 		echo "<div class='btn-group btn-group-justified' role='group' aria-label='...'>
 			<div class='btn-group' role='group'>
 				<form action='functions/logic_functions.php' method='POST'>
-			    	<button type='submit' class='btn btn-success' name='btn_evaluate'"; 
+			    	<button type='submit' class='btn btn-success' name='btn_evaluateProf'"; 
 			    		checkEvaluateStatus($stud_id, $prof_id, $sub_id); 
-			    		echo ">$desc $prof_id</button>
+			    		echo ">$desc</button>
 			    	<input type='hidden' name='student' value='$student' />
 			    	<input type='hidden' name='prof' value='$prof' />
 			    	<input type='hidden' name='subject' value='$sub_id' />
@@ -96,7 +96,11 @@ function getQuestions($form, $prof, $sub)
 		$cat_id = $row['id'];
 		$content = $row['content'];
 
-		echo "<div class='italic_bold'>$content</div>";
+		echo "<tr>
+				<td colspan = 2>
+					<div class='italic_bold bg_white'>$content</div>
+				</td>
+			</tr>";
 		getMainQues($cat_id, $prof, $sub);
 
 	}
@@ -109,24 +113,26 @@ function getMainQues($cat_id, $prof, $sub)
 	$con = $GLOBALS['dbh'];
 	$i = 1;
 	$select = "SELECT * FROM tbl_ques_main WHERE category = '$cat_id'";
+	
 	foreach($con->query($select) as $row)
 	{
 		$id = $row['id'];
 		$ques = $row['question'];
 
 		echo "
-			
-				$i. $ques
+				<tr>
+				<td>$i. $ques</td>
+				
 				<input type='hidden' name='hidden_student_id' value=$s_id />
 				<input type='hidden' name='hidden_prof_id' value=$prof />
 				<input type='hidden' name='hidden_subj_id' value=$sub />
-				
+				<td>
 			";
 				getChoices($id);
-			echo "	
-			
-			<br><br>
-			";
+			echo "
+				</td>
+					</tr>
+				";
 		$i++;
 	}
 }
@@ -272,6 +278,10 @@ function checkStudStatus()
 	if($subjects <= $i)
 	{
 		logout();
+	}
+	else
+	{
+
 	}
 
 	

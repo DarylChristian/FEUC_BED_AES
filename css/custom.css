@@ -8,6 +8,10 @@ body
 	padding-top:120px;
 	padding-bottom:100px;
 }
+#no_padding
+{
+	padding:0;
+}
 .feulogo
 {
 	margin-left:auto;
@@ -142,4 +146,45 @@ body
 .boldme
 {
 	font-weight:bold;
+}
+.main_question
+{
+	border:solid 1pt;
+	width:70%;
+	float:left;
+}
+.main_choices
+{
+	width:20%;
+	float:left;
+	border:solid 1pt;
+}
+.width_choices
+{
+	width:20%;
+}
+.width_questions
+{
+	width:80%;
+}
+.bg_white
+{
+	background-color:white;
+}
+
+.main_container
+{
+	padding-top:100px;
+}
+#red
+{
+	color:red;
+}
+#green
+{
+	color:green;
+}
+#right_align
+{
+	text-align: right;
 }
